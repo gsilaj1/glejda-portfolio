@@ -1,0 +1,98 @@
+/* Stili bazë */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* Navbar */
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Tituj */
+h1, h2, h3 {
+  color: #333;
+}
+
+/* Butona */
+button {
+  padding: 8px 16px;
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #005f73;
+}
+
+/* Tabela */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Produktet */
+.produkt {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  width: 200px;
+  background-color: white;
+  border-radius: 5px;
+  vertical-align: top;
+}
+
+/* Imazhe */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  background: #eee;
+  font-size: 14px;
+}
+
+/* Linket sociale */
+.social-link {
+  color: #008CBA;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}

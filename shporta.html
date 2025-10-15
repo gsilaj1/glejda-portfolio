@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+
+  <title>Shporta</title>
+  <style>
+    nav a { margin-right: 15px; }
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 10px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="produkte.html">Produktet</a>
+    <a href="shporta.html">Shporta</a>
+    <a href="rreth-nesh.html">Rreth Nesh</a>
+    <a href="kontakti.html">Kontakti</a>
+  </nav>
+
+  <h2>Shporta e Blerjeve</h2>
+  <table id="tabela">
+    <tr><th>Emri</th><th>Çmimi</th></tr>
+  </table>
+  <p id="total"></p>
+  <p id="posta"></p>
+  <button onclick="fshi()">Fshi Shportën</button>
+  <button onclick="vazhdo()">Vazhdo me Blerjen</button>
+
+  <script>
+    let shporta = JSON.parse(localStorage.getItem("shporta")) || [];
+    const tabela = document.getElementById("tabela");
+    let total = 0;
+    shporta.forEach(p => {
+      let rresht = tabela.insertRow();
+      rresht.insertCell().innerText = p.emri;
+      rresht.insertCell().innerText = p.cmimi + " Lekë";
+      total += p.cmimi;
+    });
+
+    document.getElementById("total").innerText = "Totali: " + total + " Lekë";
+     document.getElementById("posta").innerText =
+      total > 20000 ? "Posta: Falas" : "Posta: 300 Lekë";
+   
+
+    function fshi() {
+      if (confirm("Je i sigurt që do të fshish shportën?")) {
+        localStorage.removeItem("shporta");
+        location.reload();
+      }
+    }
+
+    function vazhdo() {
+      let emri = prompt("Shkruani emrin tuaj:");
+      let telefoni = prompt("Shkruani numrin tuaj:");
+      alert("Faleminderit, " + emri + "! Do t’ju kontaktojmë në " + telefoni);
+    }
+  </script>
+  
+  <footer>
+    <p>&copy; 2025 Dyqani Online. Të gjitha të drejtat e rezervuara.</p>
+  </footer>
+</body>
+</html>

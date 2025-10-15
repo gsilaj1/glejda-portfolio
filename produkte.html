@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Produktet</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    nav a { margin-right: 15px; }
+    .produkt { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; width: 200px; }
+  </style>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+  <nav>
+    <a href="produkte.html">Produktet</a>
+    <a href="shporta.html">Shporta</a>
+    <a href="rreth-nesh.html">Rreth Nesh</a>
+    <a href="kontakti.html">Kontakti</a>
+  </nav>
+
+  <h2>Lista e Produkteve</h2>
+  <div id="lista-produkteve"></div>
+  
+  <footer>
+    <p>&copy; 2025 Dyqani Online. Të gjitha të drejtat e rezervuara.</p>
+  </footer>
+
+  <script>
+    const produkte = [
+      { emri: "Këpucë", cmimi: 5000, foto: "https://e-baa.com/new/public/uploads/all/0QEgS1xidxX1f40ZP8sggYOworXpwPN0HulsFYgp.webp" },
+      { emri: "Xhup", cmimi: 8000, foto: "https://witcdn.klaudiofashion.com/xhup-me-kapuc-per-femra-ne-ngjyre-te-zeze-xhupa-klaudio-fashion-ta-2144-44055-38-K.jpg" },
+      { emri: "Bluze", cmimi: 2000, foto: "https://bonbona.al/cdn/shop/files/bluze-sweat-me-puf-dhe-carje-anesore-ngjyre-e-bardhe-1.jpg?v=1730888577&width=600" },
+      { emri: "Atlete", cmimi: 6000, foto: "https://sq.come4buy.com/cdn/shop/products/sneakers-women-v-shape-white-sports-221111006001p.jpg?v=1668170710" },
+      { emri: "Fustan", cmimi: 1000, foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX1Ps-ufcFfeJOc62CMPgrsrkGZCfe4h_1Cjo6HNSkaDzGYCtLzsA9ZqiDbyuQmGu7Vc8&usqp=CAU" },
+      { emri: "Çantë", cmimi: 3000, foto: "https://mystore.vicino.al/images/items/AK192A_1529483527.jpg" },
+      { emri: "Syze", cmimi: 1500, foto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUGnAYr1UqqxvaMDrIcLoRmXSqgqIssz8SJwzAW_yI8VZDaW2VfreEK1kBjcl5UP9obeo&usqp=CAU" }
+    ];
+
+    function shfaqProdukte() {
+      const div = document.getElementById("lista-produkteve");
+      produkte.forEach((p, i) => {
+        div.innerHTML += `
+          <div class="produkt">
+            <img src="${p.foto}" width="100"><br>
+            <strong>${p.emri}</strong><br>
+            ${p.cmimi} Lekë<br>
+            <button onclick="shto(${i})">Shto në shportë</button>
+          </div>
+        `;
+      });
+    }
+
+    function shto(i) {
+      let shporta = JSON.parse(localStorage.getItem("shporta")) || [];
+      shporta.push(produkte[i]);
+      localStorage.setItem("shporta", JSON.stringify(shporta));
+      alert("Produkti u shtua në shportë!");
+    }
+
+    shfaqProdukte();
+  </script>
+</body>
+</html>
